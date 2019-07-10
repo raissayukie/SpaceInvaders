@@ -1,0 +1,51 @@
+
+State Machine - |SpaceInv|currentState
+Name currentState.WinGame currentState.YouLose currentState.YouWin currentState.Playing currentState.testState currentState.Start 
+currentState.Start 0 0 0 0 0 0 
+currentState.testState 0 0 0 0 1 1 
+currentState.Playing 0 0 0 1 0 1 
+currentState.YouWin 0 0 1 0 0 1 
+currentState.YouLose 0 1 0 0 0 1 
+currentState.WinGame 1 0 0 0 0 1 
+
+State Machine - |SpaceInv|player:player2|edgeDetectorDebounce:startEdgeDetector|currentState
+Name currentState.waiting currentState.Disabled currentState.edgeDetected currentState.notDetected 
+currentState.notDetected 0 0 0 0 
+currentState.edgeDetected 0 0 1 1 
+currentState.Disabled 0 1 0 1 
+currentState.waiting 1 0 0 1 
+
+State Machine - |SpaceInv|player:player2|edgeDetectorDebounce:rightEdgeDetector|currentState
+Name currentState.waiting currentState.Disabled currentState.edgeDetected currentState.notDetected 
+currentState.notDetected 0 0 0 0 
+currentState.edgeDetected 0 0 1 1 
+currentState.Disabled 0 1 0 1 
+currentState.waiting 1 0 0 1 
+
+State Machine - |SpaceInv|player:player2|edgeDetectorDebounce:leftEdgeDetector|currentState
+Name currentState.waiting currentState.Disabled currentState.edgeDetected currentState.notDetected 
+currentState.notDetected 0 0 0 0 
+currentState.edgeDetected 0 0 1 1 
+currentState.Disabled 0 1 0 1 
+currentState.waiting 1 0 0 1 
+
+State Machine - |SpaceInv|player:player1|edgeDetectorDebounce:startEdgeDetector|currentState
+Name currentState.waiting currentState.Disabled currentState.edgeDetected currentState.notDetected 
+currentState.notDetected 0 0 0 0 
+currentState.edgeDetected 0 0 1 1 
+currentState.Disabled 0 1 0 1 
+currentState.waiting 1 0 0 1 
+
+State Machine - |SpaceInv|player:player1|edgeDetectorDebounce:rightEdgeDetector|currentState
+Name currentState.waiting currentState.Disabled currentState.edgeDetected currentState.notDetected 
+currentState.notDetected 0 0 0 0 
+currentState.edgeDetected 0 0 1 1 
+currentState.Disabled 0 1 0 1 
+currentState.waiting 1 0 0 1 
+
+State Machine - |SpaceInv|player:player1|edgeDetectorDebounce:leftEdgeDetector|currentState
+Name currentState.waiting currentState.Disabled currentState.edgeDetected currentState.notDetected 
+currentState.notDetected 0 0 0 0 
+currentState.edgeDetected 0 0 1 1 
+currentState.Disabled 0 1 0 1 
+currentState.waiting 1 0 0 1 

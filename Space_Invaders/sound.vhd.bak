@@ -1,0 +1,52 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity sound is
+   port (
+			clk 			: in 	std_logic;
+			specialSound: in 	std_logic_vector(1 downto 0);
+         buzzer   	: out std_logic;         
+         ); 
+end sound;   
+
+
+architecture behavioral of sound is
+   signal tickWin, tickLose  : std_logic; -- Signal from timer
+	
+   component timer
+      generic (t: integer);
+      port(
+         clk   : in  std_logic;
+         reset : in  std_logic;
+			clear : in  std_logic;
+         en    : in  std_logic;
+         q     : out std_logic
+      );
+   end component;
+
+   signal enableTickWin, enableTickLose: std_logic;
+   
+begin
+   speedTimerWin: timer
+      generic  map (400) -- Set this to a value around 10 for a faster simulation
+      port map ( clk => clk, reset => reset, clear => clear, en => enableTickWin, q => tickWin );
+
+   speedTimerLose: timer
+      generic  map (200) -- Set this to a value around 10 for a faster simulation
+      port map ( clk => clk, reset => reset, clear => clear, en => enableTickLose, q => tickLose );
+      
+process (clk, enableTickLose, enableTickWin)
+	case specialSound is
+		when "00" =>
+			buzzer <= tickWin;
+			enableTickWin <= '1';
+		when "01" =>
+			buzzer <= tickLose;
+			enableTickLose <= '1';
+		when others =>
+			enableTickWin <= '0';
+			enableTickLose <= '0';
+   end process;
+
+end behavioral;

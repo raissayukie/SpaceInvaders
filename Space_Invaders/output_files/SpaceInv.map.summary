@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Jul 10 05:13:40 2019
+Quartus II 64-Bit Version : 13.0.0 Build 156 04/24/2013 SJ Web Edition
+Revision Name : SpaceInv
+Top-level Entity Name : SpaceInv
+Family : Cyclone III
+Total logic elements : 1,418
+    Total combinational functions : 1,395
+    Dedicated logic registers : 456
+Total registers : 456
+Total pins : 31
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

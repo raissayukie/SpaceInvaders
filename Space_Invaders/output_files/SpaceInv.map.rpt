@@ -1,0 +1,870 @@
+Analysis & Synthesis report for SpaceInv
+Wed Jul 10 05:13:40 2019
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |SpaceInv|currentState
+  9. State Machine - |SpaceInv|player:player2|edgeDetectorDebounce:startEdgeDetector|currentState
+ 10. State Machine - |SpaceInv|player:player2|edgeDetectorDebounce:rightEdgeDetector|currentState
+ 11. State Machine - |SpaceInv|player:player2|edgeDetectorDebounce:leftEdgeDetector|currentState
+ 12. State Machine - |SpaceInv|player:player1|edgeDetectorDebounce:startEdgeDetector|currentState
+ 13. State Machine - |SpaceInv|player:player1|edgeDetectorDebounce:rightEdgeDetector|currentState
+ 14. State Machine - |SpaceInv|player:player1|edgeDetectorDebounce:leftEdgeDetector|currentState
+ 15. User-Specified and Inferred Latches
+ 16. Registers Removed During Synthesis
+ 17. General Register Statistics
+ 18. Inverted Register Statistics
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Parameter Settings for User Entity Instance: invaders:badGuys|timer:speedTimer1
+ 21. Parameter Settings for User Entity Instance: invaders:badGuys|timer:speedTimer2
+ 22. Parameter Settings for User Entity Instance: invaders:badGuys|bulletInvader:YoTambienPuedo|timer:speedTimer
+ 23. Parameter Settings for User Entity Instance: player:player1|edgeDetectorDebounce:leftEdgeDetector
+ 24. Parameter Settings for User Entity Instance: player:player1|edgeDetectorDebounce:leftEdgeDetector|timer:tim0
+ 25. Parameter Settings for User Entity Instance: player:player1|edgeDetectorDebounce:rightEdgeDetector
+ 26. Parameter Settings for User Entity Instance: player:player1|edgeDetectorDebounce:rightEdgeDetector|timer:tim0
+ 27. Parameter Settings for User Entity Instance: player:player1|edgeDetectorDebounce:startEdgeDetector
+ 28. Parameter Settings for User Entity Instance: player:player1|edgeDetectorDebounce:startEdgeDetector|timer:tim0
+ 29. Parameter Settings for User Entity Instance: player:player1|bullet:laserGun|timer:speedTimer
+ 30. Parameter Settings for User Entity Instance: player:player2|edgeDetectorDebounce:leftEdgeDetector
+ 31. Parameter Settings for User Entity Instance: player:player2|edgeDetectorDebounce:leftEdgeDetector|timer:tim0
+ 32. Parameter Settings for User Entity Instance: player:player2|edgeDetectorDebounce:rightEdgeDetector
+ 33. Parameter Settings for User Entity Instance: player:player2|edgeDetectorDebounce:rightEdgeDetector|timer:tim0
+ 34. Parameter Settings for User Entity Instance: player:player2|edgeDetectorDebounce:startEdgeDetector
+ 35. Parameter Settings for User Entity Instance: player:player2|edgeDetectorDebounce:startEdgeDetector|timer:tim0
+ 36. Parameter Settings for User Entity Instance: player:player2|bullet:laserGun|timer:speedTimer
+ 37. Port Connectivity Checks: "player:player1|bullet:laserGun|timer:speedTimer"
+ 38. Port Connectivity Checks: "player:player1|edgeDetectorDebounce:startEdgeDetector"
+ 39. Port Connectivity Checks: "invaders:badGuys|bulletInvader:YoTambienPuedo|timer:speedTimer"
+ 40. Port Connectivity Checks: "invaders:badGuys|bulletInvader:YoTambienPuedo"
+ 41. Port Connectivity Checks: "screenFormat:framebuffer"
+ 42. Elapsed Time Per Partition
+ 43. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Jul 10 05:13:40 2019      ;
+; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
+; Revision Name                      ; SpaceInv                                   ;
+; Top-level Entity Name              ; SpaceInv                                   ;
+; Family                             ; Cyclone III                                ;
+; Total logic elements               ; 1,418                                      ;
+;     Total combinational functions  ; 1,395                                      ;
+;     Dedicated logic registers      ; 456                                        ;
+; Total registers                    ; 456                                        ;
+; Total pins                         ; 31                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                                      ; SpaceInv           ; SpaceInv           ;
+; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ; < 0.1%      ;
+;     Processors 7-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                  ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                           ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+---------+
+; vga.vhd                          ; yes             ; User VHDL File  ; D:/Jhoan/UTFPR/Lógica Reconfigurável/Space_Invaders REV03/Space_Invaders REV03/Space_Invaders/vga.vhd                  ;         ;
+; timer.vhd                        ; yes             ; User VHDL File  ; D:/Jhoan/UTFPR/Lógica Reconfigurável/Space_Invaders REV03/Space_Invaders REV03/Space_Invaders/timer.vhd                ;         ;
+; spaceship.vhd                    ; yes             ; User VHDL File  ; D:/Jhoan/UTFPR/Lógica Reconfigurável/Space_Invaders REV03/Space_Invaders REV03/Space_Invaders/spaceship.vhd            ;         ;
+; SpaceInv.vhd                     ; yes             ; User VHDL File  ; D:/Jhoan/UTFPR/Lógica Reconfigurável/Space_Invaders REV03/Space_Invaders REV03/Space_Invaders/SpaceInv.vhd             ;         ;
+; screenFormat.vhd                 ; yes             ; User VHDL File  ; D:/Jhoan/UTFPR/Lógica Reconfigurável/Space_Invaders REV03/Space_Invaders REV03/Space_Invaders/screenFormat.vhd         ;         ;
+; player.vhd                       ; yes             ; User VHDL File  ; D:/Jhoan/UTFPR/Lógica Reconfigurável/Space_Invaders REV03/Space_Invaders REV03/Space_Invaders/player.vhd               ;         ;
+; invaders.vhd                     ; yes             ; User VHDL File  ; D:/Jhoan/UTFPR/Lógica Reconfigurável/Space_Invaders REV03/Space_Invaders REV03/Space_Invaders/invaders.vhd             ;         ;
+; edgeDetectorDebounce.vhd         ; yes             ; User VHDL File  ; D:/Jhoan/UTFPR/Lógica Reconfigurável/Space_Invaders REV03/Space_Invaders REV03/Space_Invaders/edgeDetectorDebounce.vhd ;         ;
+; bullet.vhd                       ; yes             ; User VHDL File  ; D:/Jhoan/UTFPR/Lógica Reconfigurável/Space_Invaders REV03/Space_Invaders REV03/Space_Invaders/bullet.vhd               ;         ;
+; sound.vhd                        ; yes             ; User VHDL File  ; D:/Jhoan/UTFPR/Lógica Reconfigurável/Space_Invaders REV03/Space_Invaders REV03/Space_Invaders/sound.vhd                ;         ;
+; bulletInvader.vhd                ; yes             ; User VHDL File  ; D:/Jhoan/UTFPR/Lógica Reconfigurável/Space_Invaders REV03/Space_Invaders REV03/Space_Invaders/bulletInvader.vhd        ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,418     ;
+;                                             ;           ;
+; Total combinational functions               ; 1395      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 732       ;
+;     -- 3 input functions                    ; 254       ;
+;     -- <=2 input functions                  ; 409       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 1061      ;
+;     -- arithmetic mode                      ; 334       ;
+;                                             ;           ;
+; Total registers                             ; 456       ;
+;     -- Dedicated logic registers            ; 456       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 31        ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 456       ;
+; Total fan-out                               ; 6367      ;
+; Average fan-out                             ; 3.33      ;
++---------------------------------------------+-----------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                    ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                        ; Library Name ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+--------------+
+; |SpaceInv                                      ; 1395 (41)         ; 456 (12)     ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |SpaceInv                                                                  ;              ;
+;    |invaders:badGuys|                          ; 529 (404)         ; 136 (53)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|invaders:badGuys                                                 ;              ;
+;       |bulletInvader:YoTambienPuedo|           ; 56 (23)           ; 34 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|invaders:badGuys|bulletInvader:YoTambienPuedo                    ;              ;
+;          |timer:speedTimer|                    ; 33 (33)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|invaders:badGuys|bulletInvader:YoTambienPuedo|timer:speedTimer   ;              ;
+;       |timer:speedTimer1|                      ; 35 (35)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|invaders:badGuys|timer:speedTimer1                               ;              ;
+;       |timer:speedTimer2|                      ; 34 (34)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|invaders:badGuys|timer:speedTimer2                               ;              ;
+;    |player:player1|                            ; 202 (17)          ; 129 (11)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player1                                                   ;              ;
+;       |bullet:laserGun|                        ; 44 (21)           ; 32 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player1|bullet:laserGun                                   ;              ;
+;          |timer:speedTimer|                    ; 23 (23)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player1|bullet:laserGun|timer:speedTimer                  ;              ;
+;       |edgeDetectorDebounce:leftEdgeDetector|  ; 41 (8)            ; 27 (4)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player1|edgeDetectorDebounce:leftEdgeDetector             ;              ;
+;          |timer:tim0|                          ; 33 (33)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player1|edgeDetectorDebounce:leftEdgeDetector|timer:tim0  ;              ;
+;       |edgeDetectorDebounce:rightEdgeDetector| ; 41 (8)            ; 27 (4)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player1|edgeDetectorDebounce:rightEdgeDetector            ;              ;
+;          |timer:tim0|                          ; 33 (33)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player1|edgeDetectorDebounce:rightEdgeDetector|timer:tim0 ;              ;
+;       |edgeDetectorDebounce:startEdgeDetector| ; 44 (5)            ; 27 (4)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player1|edgeDetectorDebounce:startEdgeDetector            ;              ;
+;          |timer:tim0|                          ; 39 (39)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player1|edgeDetectorDebounce:startEdgeDetector|timer:tim0 ;              ;
+;       |spaceship:spaceshipControl|             ; 15 (15)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player1|spaceship:spaceshipControl                        ;              ;
+;    |player:player2|                            ; 186 (16)          ; 107 (11)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player2                                                   ;              ;
+;       |bullet:laserGun|                        ; 28 (28)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player2|bullet:laserGun                                   ;              ;
+;       |edgeDetectorDebounce:leftEdgeDetector|  ; 41 (9)            ; 27 (4)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player2|edgeDetectorDebounce:leftEdgeDetector             ;              ;
+;          |timer:tim0|                          ; 32 (32)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player2|edgeDetectorDebounce:leftEdgeDetector|timer:tim0  ;              ;
+;       |edgeDetectorDebounce:rightEdgeDetector| ; 42 (9)            ; 27 (4)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player2|edgeDetectorDebounce:rightEdgeDetector            ;              ;
+;          |timer:tim0|                          ; 33 (33)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player2|edgeDetectorDebounce:rightEdgeDetector|timer:tim0 ;              ;
+;       |edgeDetectorDebounce:startEdgeDetector| ; 44 (5)            ; 27 (4)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player2|edgeDetectorDebounce:startEdgeDetector            ;              ;
+;          |timer:tim0|                          ; 39 (39)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player2|edgeDetectorDebounce:startEdgeDetector|timer:tim0 ;              ;
+;       |spaceship:spaceshipControl|             ; 15 (15)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|player:player2|spaceship:spaceshipControl                        ;              ;
+;    |screenFormat:framebuffer|                  ; 198 (198)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|screenFormat:framebuffer                                         ;              ;
+;    |sound:soundBuzzer|                         ; 168 (168)         ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|sound:soundBuzzer                                                ;              ;
+;    |vga:vgaController|                         ; 71 (71)           ; 45 (45)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SpaceInv|vga:vgaController                                                ;              ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SpaceInv|currentState                                                                                                                          ;
++------------------------+----------------------+----------------------+---------------------+----------------------+------------------------+--------------------+
+; Name                   ; currentState.WinGame ; currentState.YouLose ; currentState.YouWin ; currentState.Playing ; currentState.testState ; currentState.Start ;
++------------------------+----------------------+----------------------+---------------------+----------------------+------------------------+--------------------+
+; currentState.Start     ; 0                    ; 0                    ; 0                   ; 0                    ; 0                      ; 0                  ;
+; currentState.testState ; 0                    ; 0                    ; 0                   ; 0                    ; 1                      ; 1                  ;
+; currentState.Playing   ; 0                    ; 0                    ; 0                   ; 1                    ; 0                      ; 1                  ;
+; currentState.YouWin    ; 0                    ; 0                    ; 1                   ; 0                    ; 0                      ; 1                  ;
+; currentState.YouLose   ; 0                    ; 1                    ; 0                   ; 0                    ; 0                      ; 1                  ;
+; currentState.WinGame   ; 1                    ; 0                    ; 0                   ; 0                    ; 0                      ; 1                  ;
++------------------------+----------------------+----------------------+---------------------+----------------------+------------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SpaceInv|player:player2|edgeDetectorDebounce:startEdgeDetector|currentState                                    ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+; Name                      ; currentState.waiting ; currentState.Disabled ; currentState.edgeDetected ; currentState.notDetected ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+; currentState.notDetected  ; 0                    ; 0                     ; 0                         ; 0                        ;
+; currentState.edgeDetected ; 0                    ; 0                     ; 1                         ; 1                        ;
+; currentState.Disabled     ; 0                    ; 1                     ; 0                         ; 1                        ;
+; currentState.waiting      ; 1                    ; 0                     ; 0                         ; 1                        ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SpaceInv|player:player2|edgeDetectorDebounce:rightEdgeDetector|currentState                                    ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+; Name                      ; currentState.waiting ; currentState.Disabled ; currentState.edgeDetected ; currentState.notDetected ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+; currentState.notDetected  ; 0                    ; 0                     ; 0                         ; 0                        ;
+; currentState.edgeDetected ; 0                    ; 0                     ; 1                         ; 1                        ;
+; currentState.Disabled     ; 0                    ; 1                     ; 0                         ; 1                        ;
+; currentState.waiting      ; 1                    ; 0                     ; 0                         ; 1                        ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SpaceInv|player:player2|edgeDetectorDebounce:leftEdgeDetector|currentState                                     ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+; Name                      ; currentState.waiting ; currentState.Disabled ; currentState.edgeDetected ; currentState.notDetected ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+; currentState.notDetected  ; 0                    ; 0                     ; 0                         ; 0                        ;
+; currentState.edgeDetected ; 0                    ; 0                     ; 1                         ; 1                        ;
+; currentState.Disabled     ; 0                    ; 1                     ; 0                         ; 1                        ;
+; currentState.waiting      ; 1                    ; 0                     ; 0                         ; 1                        ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SpaceInv|player:player1|edgeDetectorDebounce:startEdgeDetector|currentState                                    ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+; Name                      ; currentState.waiting ; currentState.Disabled ; currentState.edgeDetected ; currentState.notDetected ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+; currentState.notDetected  ; 0                    ; 0                     ; 0                         ; 0                        ;
+; currentState.edgeDetected ; 0                    ; 0                     ; 1                         ; 1                        ;
+; currentState.Disabled     ; 0                    ; 1                     ; 0                         ; 1                        ;
+; currentState.waiting      ; 1                    ; 0                     ; 0                         ; 1                        ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SpaceInv|player:player1|edgeDetectorDebounce:rightEdgeDetector|currentState                                    ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+; Name                      ; currentState.waiting ; currentState.Disabled ; currentState.edgeDetected ; currentState.notDetected ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+; currentState.notDetected  ; 0                    ; 0                     ; 0                         ; 0                        ;
+; currentState.edgeDetected ; 0                    ; 0                     ; 1                         ; 1                        ;
+; currentState.Disabled     ; 0                    ; 1                     ; 0                         ; 1                        ;
+; currentState.waiting      ; 1                    ; 0                     ; 0                         ; 1                        ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SpaceInv|player:player1|edgeDetectorDebounce:leftEdgeDetector|currentState                                     ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+; Name                      ; currentState.waiting ; currentState.Disabled ; currentState.edgeDetected ; currentState.notDetected ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+; currentState.notDetected  ; 0                    ; 0                     ; 0                         ; 0                        ;
+; currentState.edgeDetected ; 0                    ; 0                     ; 1                         ; 1                        ;
+; currentState.Disabled     ; 0                    ; 1                     ; 0                         ; 1                        ;
+; currentState.waiting      ; 1                    ; 0                     ; 0                         ; 1                        ;
++---------------------------+----------------------+-----------------------+---------------------------+--------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                  ;
++----------------------------------------------------+------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal    ; Free of Timing Hazards ;
++----------------------------------------------------+------------------------+------------------------+
+; specialSound[0]                                    ; currentState.testState ; yes                    ;
+; specialSound[1]                                    ; currentState.testState ; yes                    ;
+; Number of user-specified and inferred latches = 2  ;                        ;                        ;
++----------------------------------------------------+------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                ;
++-----------------------------------------------------------+-----------------------------------------------------------------------+
+; Register name                                             ; Reason for Removal                                                    ;
++-----------------------------------------------------------+-----------------------------------------------------------------------+
+; p1ScoreClear                                              ; Merged with levelClear                                                ;
+; p2ScoreClear                                              ; Merged with levelClear                                                ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[0]  ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[0]  ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[21] ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[21] ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[20] ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[20] ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[19] ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[19] ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[18] ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[18] ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[17] ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[17] ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[16] ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[16] ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[15] ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[15] ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[14] ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[14] ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[13] ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[13] ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[12] ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[12] ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[11] ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[11] ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[10] ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[10] ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[9]  ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[9]  ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[8]  ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[8]  ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[7]  ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[7]  ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[6]  ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[6]  ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[5]  ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[5]  ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[4]  ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[4]  ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[3]  ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[3]  ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[2]  ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[2]  ;
+; player:player2|bullet:laserGun|timer:speedTimer|count[1]  ; Merged with player:player1|bullet:laserGun|timer:speedTimer|count[1]  ;
+; Total Number of Removed Registers = 24                    ;                                                                       ;
++-----------------------------------------------------------+-----------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 456   ;
+; Number of registers using Synchronous Clear  ; 228   ;
+; Number of registers using Synchronous Load   ; 3     ;
+; Number of registers using Asynchronous Clear ; 400   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 280   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------+
+; Inverted Register Statistics                                   ;
++------------------------------------------------------+---------+
+; Inverted Register                                    ; Fan out ;
++------------------------------------------------------+---------+
+; player:player1|vidas[1]                              ; 5       ;
+; player:player1|vidas[0]                              ; 4       ;
+; player:player2|vidas[1]                              ; 5       ;
+; player:player2|vidas[0]                              ; 4       ;
+; vga:vgaController|HSync                              ; 1       ;
+; vga:vgaController|VSync                              ; 1       ;
+; player:player1|spaceship:spaceshipControl|posHAux[0] ; 6       ;
+; player:player1|spaceship:spaceshipControl|posHAux[3] ; 6       ;
+; player:player2|spaceship:spaceshipControl|posHAux[0] ; 6       ;
+; player:player2|spaceship:spaceshipControl|posHAux[3] ; 6       ;
+; player:player2|bullet:laserGun|intbullY[3]           ; 5       ;
+; player:player2|bullet:laserGun|intbullY[1]           ; 7       ;
+; player:player2|bullet:laserGun|intbullY[2]           ; 6       ;
+; invaders:badGuys|invLine[0]~reg0                     ; 12      ;
+; invaders:badGuys|invLine[3]~reg0                     ; 8       ;
+; invaders:badGuys|invLine[2]~reg0                     ; 10      ;
+; player:player1|bullet:laserGun|intbullY[1]           ; 7       ;
+; player:player1|bullet:laserGun|intbullY[2]           ; 6       ;
+; player:player1|bullet:laserGun|intbullY[3]           ; 5       ;
+; Total number of inverted registers = 19              ;         ;
++------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |SpaceInv|invaders:badGuys|bulletInvader:YoTambienPuedo|timer:speedTimer|count[2]    ;
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |SpaceInv|player:player1|bullet:laserGun|timer:speedTimer|count[8]                   ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|bulletInvader:YoTambienPuedo|intbullX[4]                  ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |SpaceInv|intLevel[2]                                                                ;
+; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |SpaceInv|player:player2|edgeDetectorDebounce:rightEdgeDetector|timer:tim0|count[0]  ;
+; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |SpaceInv|player:player2|edgeDetectorDebounce:leftEdgeDetector|timer:tim0|count[13]  ;
+; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |SpaceInv|player:player1|edgeDetectorDebounce:rightEdgeDetector|timer:tim0|count[19] ;
+; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |SpaceInv|player:player1|edgeDetectorDebounce:leftEdgeDetector|timer:tim0|count[19]  ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |SpaceInv|player:player2|bullet:laserGun|intbullX[2]                                 ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |SpaceInv|player:player1|bullet:laserGun|intbullX[2]                                 ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |SpaceInv|invaders:badGuys|timer:speedTimer2|count[10]                               ;
+; 4:1                ; 25 bits   ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |SpaceInv|invaders:badGuys|timer:speedTimer1|count[6]                                ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |SpaceInv|player:player1|spaceship:spaceshipControl|posHAux[1]                       ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |SpaceInv|player:player2|spaceship:spaceshipControl|posHAux[1]                       ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|bulletInvader:YoTambienPuedo|intbullY[0]                  ;
+; 10:1               ; 24 bits   ; 144 LEs       ; 48 LEs               ; 96 LEs                 ; Yes        ; |SpaceInv|sound:soundBuzzer|s_FREQ[1]                                                ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[38]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[20]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[22]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[24]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[26]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[28]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[30]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[32]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[34]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[36]~reg0                                         ;
+; 21:1               ; 5 bits    ; 70 LEs        ; 65 LEs               ; 5 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|posHBullet[0]                                             ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |SpaceInv|player:player1|spaceship:spaceshipControl|posHAux[3]                       ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |SpaceInv|player:player2|spaceship:spaceshipControl|posHAux[0]                       ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |SpaceInv|player:player2|bullet:laserGun|intbullY[2]                                 ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |SpaceInv|player:player1|bullet:laserGun|intbullY[1]                                 ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[1]~reg0                                          ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 6 LEs                ; 10 LEs                 ; Yes        ; |SpaceInv|invaders:badGuys|invLine[3]~reg0                                           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[2]~reg0                                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[4]~reg0                                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[7]~reg0                                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[8]~reg0                                          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[11]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[13]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[15]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[17]~reg0                                         ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |SpaceInv|invaders:badGuys|invArray[18]~reg0                                         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SpaceInv|player:player1|edgeDetectorDebounce:leftEdgeDetector|currentState          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |SpaceInv|nextState                                                                  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SpaceInv|player:player2|edgeDetectorDebounce:leftEdgeDetector|currentState          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |SpaceInv|vga:vgaController|HCount                                                   ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |SpaceInv|vga:vgaController|VCount                                                   ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |SpaceInv|screenFormat:framebuffer|Mux39                                             ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; No         ; |SpaceInv|screenFormat:framebuffer|Mux0                                              ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; No         ; |SpaceInv|invaders:badGuys|Mux15                                                     ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; No         ; |SpaceInv|invaders:badGuys|Mux13                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: invaders:badGuys|timer:speedTimer1 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; t              ; 400   ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: invaders:badGuys|timer:speedTimer2 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; t              ; 200   ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: invaders:badGuys|bulletInvader:YoTambienPuedo|timer:speedTimer ;
++----------------+-------+------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                               ;
++----------------+-------+------------------------------------------------------------------------------------+
+; t              ; 200   ; Signed Integer                                                                     ;
++----------------+-------+------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player1|edgeDetectorDebounce:leftEdgeDetector ;
++----------------+-------+--------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                     ;
++----------------+-------+--------------------------------------------------------------------------+
+; debounceTime   ; 100   ; Signed Integer                                                           ;
++----------------+-------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player1|edgeDetectorDebounce:leftEdgeDetector|timer:tim0 ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; t              ; 100   ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player1|edgeDetectorDebounce:rightEdgeDetector ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; debounceTime   ; 100   ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player1|edgeDetectorDebounce:rightEdgeDetector|timer:tim0 ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; t              ; 100   ; Signed Integer                                                                       ;
++----------------+-------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player1|edgeDetectorDebounce:startEdgeDetector ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; debounceTime   ; 100   ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player1|edgeDetectorDebounce:startEdgeDetector|timer:tim0 ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; t              ; 100   ; Signed Integer                                                                       ;
++----------------+-------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player1|bullet:laserGun|timer:speedTimer ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; t              ; 50    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player2|edgeDetectorDebounce:leftEdgeDetector ;
++----------------+-------+--------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                     ;
++----------------+-------+--------------------------------------------------------------------------+
+; debounceTime   ; 100   ; Signed Integer                                                           ;
++----------------+-------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player2|edgeDetectorDebounce:leftEdgeDetector|timer:tim0 ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; t              ; 100   ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player2|edgeDetectorDebounce:rightEdgeDetector ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; debounceTime   ; 100   ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player2|edgeDetectorDebounce:rightEdgeDetector|timer:tim0 ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; t              ; 100   ; Signed Integer                                                                       ;
++----------------+-------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player2|edgeDetectorDebounce:startEdgeDetector ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; debounceTime   ; 100   ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player2|edgeDetectorDebounce:startEdgeDetector|timer:tim0 ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------------+
+; t              ; 100   ; Signed Integer                                                                       ;
++----------------+-------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: player:player2|bullet:laserGun|timer:speedTimer ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; t              ; 50    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Port Connectivity Checks: "player:player1|bullet:laserGun|timer:speedTimer" ;
++------+-------+----------+---------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                           ;
++------+-------+----------+---------------------------------------------------+
+; en   ; Input ; Info     ; Stuck at VCC                                      ;
++------+-------+----------+---------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Port Connectivity Checks: "player:player1|edgeDetectorDebounce:startEdgeDetector" ;
++--------+-------+----------+-------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                               ;
++--------+-------+----------+-------------------------------------------------------+
+; clear  ; Input ; Info     ; Stuck at GND                                          ;
+; enable ; Input ; Info     ; Stuck at VCC                                          ;
++--------+-------+----------+-------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "invaders:badGuys|bulletInvader:YoTambienPuedo|timer:speedTimer" ;
++------+-------+----------+------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                          ;
++------+-------+----------+------------------------------------------------------------------+
+; en   ; Input ; Info     ; Stuck at VCC                                                     ;
++------+-------+----------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "invaders:badGuys|bulletInvader:YoTambienPuedo" ;
++--------+-------+----------+-----------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                       ;
++--------+-------+----------+-----------------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                                  ;
+; shoot  ; Input ; Info     ; Stuck at VCC                                  ;
++--------+-------+----------+-----------------------------------------------+
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "screenFormat:framebuffer" ;
++------------------+-------+----------+----------------+
+; Port             ; Type  ; Severity ; Details        ;
++------------------+-------+----------+----------------+
+; specialscreen[2] ; Input ; Info     ; Stuck at GND   ;
++------------------+-------+----------+----------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+    Info: Processing started: Wed Jul 10 05:13:34 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SpaceInv -c SpaceInv
+Info (11104): Parallel Compilation has detected 12 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 6 of the 6 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file vga.vhd
+    Info (12022): Found design unit 1: vga-Behavioral
+    Info (12023): Found entity 1: vga
+Info (12021): Found 2 design units, including 1 entities, in source file timer.vhd
+    Info (12022): Found design unit 1: timer-behavioral
+    Info (12023): Found entity 1: timer
+Info (12021): Found 2 design units, including 1 entities, in source file spaceship.vhd
+    Info (12022): Found design unit 1: spaceship-Behavioral
+    Info (12023): Found entity 1: spaceship
+Info (12021): Found 2 design units, including 1 entities, in source file spaceinv.vhd
+    Info (12022): Found design unit 1: SpaceInv-Behavioral
+    Info (12023): Found entity 1: SpaceInv
+Info (12021): Found 2 design units, including 1 entities, in source file screenformat.vhd
+    Info (12022): Found design unit 1: screenFormat-behavioral
+    Info (12023): Found entity 1: screenFormat
+Info (12021): Found 2 design units, including 1 entities, in source file player.vhd
+    Info (12022): Found design unit 1: player-Structural
+    Info (12023): Found entity 1: player
+Info (12021): Found 2 design units, including 1 entities, in source file invaders.vhd
+    Info (12022): Found design unit 1: invaders-behavioral
+    Info (12023): Found entity 1: invaders
+Info (12021): Found 2 design units, including 1 entities, in source file edgedetectorrisefall.vhd
+    Info (12022): Found design unit 1: edgeDetectorRiseFall-Behavioral
+    Info (12023): Found entity 1: edgeDetectorRiseFall
+Info (12021): Found 2 design units, including 1 entities, in source file edgedetectordebounce.vhd
+    Info (12022): Found design unit 1: edgeDetectorDebounce-Behavioral
+    Info (12023): Found entity 1: edgeDetectorDebounce
+Info (12021): Found 2 design units, including 1 entities, in source file edgedetector.vhd
+    Info (12022): Found design unit 1: edgeDetector-Behavioral
+    Info (12023): Found entity 1: edgeDetector
+Info (12021): Found 2 design units, including 1 entities, in source file bullet.vhd
+    Info (12022): Found design unit 1: bullet-behavioral
+    Info (12023): Found entity 1: bullet
+Info (12021): Found 2 design units, including 1 entities, in source file sound.vhd
+    Info (12022): Found design unit 1: sound-behavioral
+    Info (12023): Found entity 1: sound
+Info (12021): Found 2 design units, including 1 entities, in source file bulletinvader.vhd
+    Info (12022): Found design unit 1: bulletInvader-behavioral
+    Info (12023): Found entity 1: bulletInvader
+Info (12127): Elaborating entity "SpaceInv" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at SpaceInv.vhd(441): signal "LifeP1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SpaceInv.vhd(441): signal "LifeP2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at SpaceInv.vhd(361): inferring latch(es) for signal or variable "specialSound", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "specialSound[0]" at SpaceInv.vhd(361)
+Info (10041): Inferred latch for "specialSound[1]" at SpaceInv.vhd(361)
+Info (12128): Elaborating entity "vga" for hierarchy "vga:vgaController"
+Info (12128): Elaborating entity "screenFormat" for hierarchy "screenFormat:framebuffer"
+Warning (10492): VHDL Process Statement warning at screenFormat.vhd(219): signal "VGAx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at screenFormat.vhd(220): signal "VGAy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at screenFormat.vhd(259): signal "bulletInvaderActive" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at screenFormat.vhd(259): signal "bullInvaderX" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at screenFormat.vhd(259): signal "bullInvaderY" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at screenFormat.vhd(292): signal "VGAx" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at screenFormat.vhd(293): signal "VGAy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at screenFormat.vhd(303): signal "p1Score" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at screenFormat.vhd(322): signal "p2Score" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "sound" for hierarchy "sound:soundBuzzer"
+Info (12128): Elaborating entity "invaders" for hierarchy "invaders:badGuys"
+Warning (10492): VHDL Process Statement warning at invaders.vhd(130): signal "level" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "timer" for hierarchy "invaders:badGuys|timer:speedTimer1"
+Info (12128): Elaborating entity "timer" for hierarchy "invaders:badGuys|timer:speedTimer2"
+Info (12128): Elaborating entity "bulletInvader" for hierarchy "invaders:badGuys|bulletInvader:YoTambienPuedo"
+Info (12128): Elaborating entity "player" for hierarchy "player:player1"
+Warning (10492): VHDL Process Statement warning at player.vhd(158): signal "Clear" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "spaceship" for hierarchy "player:player1|spaceship:spaceshipControl"
+Info (12128): Elaborating entity "edgeDetectorDebounce" for hierarchy "player:player1|edgeDetectorDebounce:leftEdgeDetector"
+Info (12128): Elaborating entity "timer" for hierarchy "player:player1|edgeDetectorDebounce:leftEdgeDetector|timer:tim0"
+Info (12128): Elaborating entity "bullet" for hierarchy "player:player1|bullet:laserGun"
+Info (12128): Elaborating entity "timer" for hierarchy "player:player1|bullet:laserGun|timer:speedTimer"
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "invaders:badGuys|invArray[13]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[13]~reg0_emulated" and latch "invaders:badGuys|invArray[13]~1"
+    Warning (13310): Register "invaders:badGuys|invArray[5]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[5]~reg0_emulated" and latch "invaders:badGuys|invArray[5]~5"
+    Warning (13310): Register "invaders:badGuys|invArray[11]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[11]~reg0_emulated" and latch "invaders:badGuys|invArray[11]~9"
+    Warning (13310): Register "invaders:badGuys|invArray[19]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[19]~reg0_emulated" and latch "invaders:badGuys|invArray[19]~13"
+    Warning (13310): Register "invaders:badGuys|invArray[3]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[3]~reg0_emulated" and latch "invaders:badGuys|invArray[19]~13"
+    Warning (13310): Register "invaders:badGuys|invArray[17]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[17]~reg0_emulated" and latch "invaders:badGuys|invArray[19]~13"
+    Warning (13310): Register "invaders:badGuys|invArray[9]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[9]~reg0_emulated" and latch "invaders:badGuys|invArray[11]~9"
+    Warning (13310): Register "invaders:badGuys|invArray[1]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[1]~reg0_emulated" and latch "invaders:badGuys|invArray[19]~13"
+    Warning (13310): Register "invaders:badGuys|invArray[15]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[15]~reg0_emulated" and latch "invaders:badGuys|invArray[5]~5"
+    Warning (13310): Register "invaders:badGuys|invArray[7]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[7]~reg0_emulated" and latch "invaders:badGuys|invArray[13]~1"
+    Warning (13310): Register "invaders:badGuys|invArray[10]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[10]~reg0_emulated" and latch "invaders:badGuys|invArray[10]~29"
+    Warning (13310): Register "invaders:badGuys|invArray[18]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[18]~reg0_emulated" and latch "invaders:badGuys|invArray[18]~33"
+    Warning (13310): Register "invaders:badGuys|invArray[2]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[2]~reg0_emulated" and latch "invaders:badGuys|invArray[18]~33"
+    Warning (13310): Register "invaders:badGuys|invArray[12]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[12]~reg0_emulated" and latch "invaders:badGuys|invArray[12]~39"
+    Warning (13310): Register "invaders:badGuys|invArray[4]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[4]~reg0_emulated" and latch "invaders:badGuys|invArray[4]~43"
+    Warning (13310): Register "invaders:badGuys|invArray[16]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[16]~reg0_emulated" and latch "invaders:badGuys|invArray[18]~33"
+    Warning (13310): Register "invaders:badGuys|invArray[8]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[8]~reg0_emulated" and latch "invaders:badGuys|invArray[10]~29"
+    Warning (13310): Register "invaders:badGuys|invArray[0]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[0]~reg0_emulated" and latch "invaders:badGuys|invArray[18]~33"
+    Warning (13310): Register "invaders:badGuys|invArray[14]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[14]~reg0_emulated" and latch "invaders:badGuys|invArray[4]~43"
+    Warning (13310): Register "invaders:badGuys|invArray[6]~reg0" is converted into an equivalent circuit using register "invaders:badGuys|invArray[6]~reg0_emulated" and latch "invaders:badGuys|invArray[12]~39"
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register player:player1|spaceship:spaceshipControl|posHAux[0] will power up to High
+    Critical Warning (18010): Register player:player1|spaceship:spaceshipControl|posHAux[3] will power up to High
+    Critical Warning (18010): Register player:player2|spaceship:spaceshipControl|posHAux[0] will power up to High
+    Critical Warning (18010): Register player:player2|spaceship:spaceshipControl|posHAux[3] will power up to High
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1475 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 20 output pins
+    Info (21061): Implemented 1444 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 40 warnings
+    Info: Peak virtual memory: 4672 megabytes
+    Info: Processing ended: Wed Jul 10 05:13:40 2019
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:05
+
+

@@ -1,0 +1,26 @@
+esquema de jogo
+
+esquerda1 azul -> SW0
+
+esquerda2 vermelho -> SW1
+
+reset  -> SW2
+
+direita1 azul -> SW3
+
+direita2 vermelho -> SW4
+
+tiro1 azul -> SW5
+
+tiro2 vermelho-> SW6
+
+start1 azul -> SW7
+
+start2 vermelho -> SW8
+
+test -> SW9 (não faco ideia do que isso faz)
+
+Have fun!!!!!!
+
+
+
