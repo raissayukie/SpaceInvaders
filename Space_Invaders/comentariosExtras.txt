@@ -1,0 +1,107 @@
+posição bala vs linha dos invaders (badguys)
+____________________
+Invader Bad Guys
+invaders.vhd
+
+invLine : buffer : estado jogo
+
+tick1/tick2 :  controlador de timer
+tick : verifica se tick1 ou tick2 estao habilitados
+right : 0 quando clear ou reset
+initArray: define número de invaders na tela de acordo com o nível 
+level: input: vetor(2) ---> intLevel de top level
+start + moving =1  anda os invaders
+invArray(38)(39)  -- comparação para travar movimento na tela (colisão lateral)
+invLine: input: verifica level para reposicionar os invaders nas linhas verticais, pulando de linha (status 110 pára com tudo)
+bullX1: input : origem de Player1 ; posição da bala do player1 (?) multiplica por 2: nave anda 'meio passo' (de acordo com tamanho da nave)
+intBulletX1: variavel: que recebe o valr de bullX1
+signhit1: compara com bullet nas posicoes horizontal(invArray) e vertical(invLine) para comitar colisão
+hit1<=signhit1
+
+______________________
+Player
+
+player1.vhd
+score--> envia para screenformat
+edgeDetectorDebounce
+left;right
+start
+bullet x e y ; bulletFlying : output para screenformat
+5 bits  para gerar 20 posições horizontais
+
+______________________
+SpaceInv
+
+enable ; p2enable --> enable
+habilita uso do player 2 de acordo com comando no inicio do game
+
+tela de start: codigo 000 para specialScreen
+tela do vencedor: codigo 001
+
+verificar maquina de estados win game (011)
+tela you lose 010
+
+
+____________________
+vgaController
+
+descobrir motivo das limitações na tela --VGA format sync pulse horizontal 96 e vertical 2
+área ativa de vídeo + front porch = 96 pulsos + hsync = 0
+o mesmo raciocinio na vertical
+X;Y :output de 10 bits enviado para screenformat(VGAx e y)
+
+
+____________________
+edgeDetector -- apenas utilizado o arquivo com debounce
+____________________
+edgeDetectorDebounce
+
+input : input: 
+obtém os controle de comando do usuário para repassar ao player com tratamento do botão
+____________________
+todos os debouncers tratam os botões mas seria interessante talvez trocar pelo proprio
+
+
+______________________
+spaceship.vhd
+
+posH -- vetor 5bits com a posição central da tela no reinício
+posAux -- centro da tela (9)
+left=1 e right=1 movimento liberado junto com enable =1
+______________________
+bullet.vhd
+
+shoot: input do botão de disparo (precisa colocar debounce)
+inflying: variable dentro do process
+process: inflying +shoot
+hit: input do bloco de invaders bad guys
+
+Moving up: corrige posição de bullet de acordo com velocidade/ trata delimitação da tela em Y também
+______________________
+ScreenFormat
+screenformat.vhd
+
+inputs: bulletFlying; player2shown; bull; 
+teste :  meio de forçar a maquina de estados a voltar a um estado conhecido
+VGAx e VGAy : input:  dados de vgaController (vga.vhd)
+invArray: 
+shipX:
+invLine: 
+bullX:
+bullY:
+specialScreen:
+score:
+____________________
+veriicar dimensionamento screenformat
+verificar mudança de cor nos invaders bandidos
+____________________
+SpaceInv
+
+--> falta: mostrar score ; tiro do alien ; controle vidas ; tela de game over/ tela de ganhar
+
+
+
+
+--
+currentstate == maquina de estados
+---
